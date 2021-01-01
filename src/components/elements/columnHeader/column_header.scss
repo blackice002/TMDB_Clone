@@ -1,0 +1,25 @@
+@import '../../../index.scss';
+
+.column_wrapper {   
+
+        display:inline-flex;
+        list-style-type: none;
+        border: 1px solid black;
+        border-radius: 1rem;
+        .menu_item {
+
+            display: block;
+            padding: .2rem .5rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .1s;
+            
+        }
+        .selected {
+            background-color: $primary;
+            color:#87CCA6 ;
+        
+        }
+
+}

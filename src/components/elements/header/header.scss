@@ -1,0 +1,39 @@
+@import '../../../index.scss';
+
+.header {
+    height: 60px;
+    width: 100%;
+    background: $primary;
+    margin: 0;
+    color: white;
+
+    .header_contain {
+        display: flex;
+        height: 100%;
+        // width: 85%;
+        margin: 0 auto;
+        justify-content: flex-start;
+        align-items: center;
+        background: -webkit-linear-gradient(90deg, #09B5E2, #87CCA6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        h2 {
+            font-size: 2rem;
+            letter-spacing: .2rem;
+            // background: -webkit-linear-gradient(90deg, #09B5E2, #87CCA6);
+            // -webkit-background-clip: text;
+            // -webkit-text-fill-color: transparent;
+            // color: linear-gradient(rgb(64, 30, 3), rgb(7, 122, 151)) !important;
+        }
+
+        .header_logo {
+            height: 1.5rem;
+            width: 4rem;
+            background-color: #09B5E2;
+            border-radius: 2rem;
+
+        }
+    }
+
+}
