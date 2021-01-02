@@ -6,14 +6,16 @@
         list-style-type: none;
         border: 1px solid black;
         border-radius: 1rem;
+        margin-left: 2rem;
         .menu_item {
 
             display: block;
-            padding: .2rem .5rem;
+            padding: .3rem 1rem;
             border-radius: 1rem;
             text-decoration: none;
             font-weight: 600;
             transition: .1s;
+            color:#072742;
             
         }
         .selected {
