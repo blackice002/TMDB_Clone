@@ -1,0 +1,19 @@
+
+.movie_card{
+    display: flex;
+    height:145px;
+    align-items: center;
+    margin-top:.5rem;
+    border:1px solid lightgrey;
+    border-radius: 1rem;
+    overflow: hidden;
+    .image_flex{
+        width:92px;
+        height: 100%;
+        background-color: red;
+    }
+    .flex_fullColumn{
+        padding-left: 1rem;
+        flex:1
+    }
+};

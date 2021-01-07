@@ -9,24 +9,20 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
 .progress--circle {
     position: relative;
     display: inline-block;
-    margin: $spacing;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: #5CC5BB;
-    margin-top: -2rem;
-
     &:before {
         content: '';
         position: absolute;
         top: 5px;
         left: 5px;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         background-color: #032541;
     }
-
     &:after {
         content: '';
         display: inline-block;
@@ -48,20 +44,8 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
     color: white;
 }
 
-.progress--pie {
-    &:before {
-        display: none;
-        /* Get rid of white circle for "pie chart style" meter */
-    }
-
-    .progress__number {
-        color: white;
-        text-shadow: $textShadow;
-    }
-}
-
 /**
-* $step is set to 5 by default, meaning you can only use percentage classes in increments of five (e.g. 25, 30, 45, 50, and so on). This helps to reduce the size of the final CSS file. If you need a number that doesn't end in 0 or 5, you can change the text percentage while rounding the class up/down to the nearest 5.
+* $step is set to 1 by default, meaning you can only use percentage classes in increments of five (e.g. 25, 30, 45, 50, and so on). This helps to reduce the size of the final CSS file. If you need a number that doesn't end in 0 or 5, you can change the text percentage while rounding the class up/down to the nearest 5.
 */
 $step: 1;
 $loops: round(100 / $step);
