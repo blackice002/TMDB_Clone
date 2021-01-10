@@ -4,12 +4,13 @@ import "./column_header.scss";
 import { Link } from "react-router-dom";
 const Column_Header = (props) => {
   const data = [
-    {mediaName: "Popular", mediaValue: "popular"},
-    {mediaName: "In Theaters", mediaValue: "now_playing"},
-    {mediaName:"Top Rated", mediaValue: "top_rated"},
+    { mediaName: "Popular", mediaValue: "popular" },
+    { mediaName: "In Theaters", mediaValue: "now_playing" },
+    { mediaName: "Top Rated", mediaValue: "top_rated" },
   ];
   const [selectedItem, setSetSelectedItem] = useState({
-    mediaName: "Popular", mediaValue: "popular"
+    mediaName: "Popular",
+    mediaValue: "popular",
   });
   //   const [linkColor, setLinkColor] = useState("white")
 

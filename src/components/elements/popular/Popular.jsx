@@ -1,35 +1,31 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useState, useEffect } from "react";
 import Column_Header from "../columnHeader/Column_Header";
-import axios from "axios";
 import "./popular.scss";
 import Card from "../card/Card";
-import { API_KEY, API_URL } from "../../../config";
+import { useSelector, useDispatch } from "react-redux";
+import { getpopularmovies } from "../../../actions";
 
 const Popular = () => {
   const [querydata, setQuerydata] = useState("popular");
-  const [getPopular, setgetPopular] = useState([]);
 
+  const getPopular = useSelector((state) => state.home.movies);
+  const dispatch = useDispatch();
+
+  console.log(getPopular);
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios.get(
-        `${API_URL}movie/${querydata}?api_key=${API_KEY}&language=en-US&page=1`
-      );
-      setgetPopular(result.data.results)
-    };
-    fetchData();
-  }, [querydata]);
+    dispatch(getpopularmovies(querydata));
+  }, [dispatch, querydata]);
 
   const changeQueryData = (childData) => {
     setQuerydata(childData);
   };
-  // console.log(querydata);
-  // console.log(getPopular);
 
-  const getSortedData = getPopular.sort(
+  const getSortedData = getPopular?.sort(
     (a, b) => b.vote_average - a.vote_average
   );
 
+  // const getSortedData = [];
   return (
     <div className="popular_wrapper">
       <div className="popular_title">
@@ -39,7 +35,7 @@ const Popular = () => {
 
       <div className="movie_wrapper">
         {getSortedData.length > 0 ? (
-          getSortedData.map((movie) => (
+          getSortedData?.map((movie) => (
             <Card
               key={movie.id}
               name={movie.title ? movie.title : movie.name}

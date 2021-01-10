@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux';
 import home from './home';
-import movie from './movie';
+import movieDetails from './movie';
+import search from './search'
 
 const rootReducers = combineReducers({
     home, 
-    movie
+    movieDetails,
+    search
 })
 export default rootReducers;

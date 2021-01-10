@@ -13,7 +13,7 @@ const MovieCard = ({ overview, title, release_date, poster_path }) => {
         <h4>{title}</h4> 
         <h5> Release date: {release_date}</h5>
         <p>{overview}</p>
-      </div>
+      </div> 
     </div>
   );
 };
