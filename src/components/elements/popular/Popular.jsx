@@ -8,11 +8,9 @@ import { getpopularmovies } from "../../../actions";
 
 const Popular = () => {
   const [querydata, setQuerydata] = useState("popular");
-
   const getPopular = useSelector((state) => state.home.movies);
   const dispatch = useDispatch();
 
-  console.log(getPopular);
   useEffect(() => {
     dispatch(getpopularmovies(querydata));
   }, [dispatch, querydata]);
@@ -25,7 +23,6 @@ const Popular = () => {
     (a, b) => b.vote_average - a.vote_average
   );
 
-  // const getSortedData = [];
   return (
     <div className="popular_wrapper">
       <div className="popular_title">

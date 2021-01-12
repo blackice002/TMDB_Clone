@@ -4,46 +4,48 @@ import { searchMovies } from "../../actions";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import "./searchresult.scss";
+import movieImage from '../../images/movie.jpg'
+import bannerCanvas from "../../images/movie_canvas.jpg"
 
 const SearchResults = (props) => {
-  const { searchTerm } = props.match.params;
-  // console.log(searchTerm)
-  // const [searchResult, setSearchResult] = useState([]);
-  const searchResult = useSelector((state) => state.search.searchResult);
+  const { searchResult, loading } = useSelector((state) => state.search);
 
   const { page, results, total_pages, total_results } = searchResult;
   console.log("search results: ", searchResult);
-  const dispatch = useDispatch();
   const history = useHistory();
 
-  useEffect(() => {
-    dispatch(searchMovies(searchTerm));
-  }, []);
-
   const movieDetails = (id) => {
-    console.log(`clicked on movie id: ${id}`);
-    history.push(`/details/${id}`)
+    history.push(`/details/${id}`);
   };
 
-  // console.log(searchResult);
   return (
-    <div className="serchresult_container">
-      {results.length > 0 ? (
+<div className="search_container">
+{/* banner  */}
+<div className="search_banner">
+  <img src={bannerCanvas} alt="movie_canvas"/>
+</div>
+
+{/* search reslts */}
+
+<div className="serchresult_container">
+      {loading ? (
+        <h2>No result Found</h2>
+      ) : (
         results.map((movie) => (
-          <div onClick={() => movieDetails(movie.id)}>
+          <div onClick={() => movieDetails(movie.id)} key={movie.id} >
             <MovieCard
-              key={movie.id}
               overview={movie.overview}
               title={movie.title}
               release_date={movie.release_date}
-              poster_path={movie.poster_path}
+              poster_path={movie.poster_path? movie.poster_path: movieImage }
             />
           </div>
         ))
-      ) : (
-        <h2>No result Found</h2>
       )}
     </div>
+</div>
+
+    
   );
 };
 

@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./detail.scss";
 import {
-  API_KEY,
-  API_URL,
   BACKDROP_SIZE,
   IMAGE_BASE_URL,
   DETAIL_SIZE,
   POSTER_SIZE,
 } from "../../config";
+import noImage from "../../images/noImage.jpg";
 import UserRating from "../elements/userRating/UserRating";
 import VideoModal from "../elements/modal/VideoModal";
 import { getMovie, getMovieCast } from "../../actions";
@@ -17,12 +16,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Details = (props) => {
   const { id } = props.match.params;
-
-  // const [movieDetail, setMovieDetail] = useState({});
-  // const [credits, setCredits] = useState([]);
   const { movieDetail, cast } = useSelector((state) => state.movieDetails);
-
-  // console.log(movieDetail)
   console.log("movie ID Cast: ", cast);
   const dispatch = useDispatch();
 
@@ -38,18 +32,6 @@ const Details = (props) => {
     dispatch(getMovieCast(id));
   }, []);
 
-  //   const latestMovie = async () => {
-  //     const latest = await axios.get(
-  //       `${API_URL}movie/latest?api_key=${API_KEY}&language=en-US`
-  //     );
-  //     console.log("latest Movie: ", latest);
-  //   };
-  //   latestMovie();
-
-  // const director = credits.crew.filter((member) => member.job === "Director");
-  // console.log(director)
-  // console.log("movie details", movieDetail);
-  // console.log(credits);
   return (
     <div className="detils_container">
       <div className="detail_header" style={bannerBack}>
@@ -74,25 +56,32 @@ const Details = (props) => {
         </div>
       </div>
 
-<div className="header-container">
-<h2> crew memeber of the movie</h2>
-      <hr />
-</div>
+      <div className="header-container">
+        <h2> Crew memeber</h2>
+ 
+      </div>
 
       <div className="actor_container">
         <div className="actor_wrapper">
-        {cast.map((actor, index) => (
-          <div className="actor_div" key={actor.id + index}>
-            {actor.profile_path? 
-            <img
-              src={`${IMAGE_BASE_URL}${POSTER_SIZE}${actor.profile_path}`}
-              alt={actor.name}
-            /> : <h5>No image</h5> }
-            <h4> {actor.name}</h4>
-          </div>
-        ))}
+          {cast.map((actor, index) => (
+            <div className="actor_div" key={actor.id + index}>
+              {actor.profile_path ? (
+                <div className="image_div">
+                  <img
+                    src={`${IMAGE_BASE_URL}${POSTER_SIZE}${actor.profile_path}`}
+                    alt={actor.name}
+                  />
+                  <h4> {actor.name}</h4>
+                </div>
+              ) : (
+                <div className="image_div">
+                  <img src={noImage} alt="No-image" className="no_image" />
+                  <h4> {actor.name}</h4>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
-        
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const Card = ({name, poster_path, release_date, vote_average, id}) => {
       <img src={`${IMAGE_BASE_URL}${POSTER_SIZE}${poster_path}`} alt={name} className="card_image"/>
       <div className="card_contain">
           {/* pass data value to the className Aswell */}
-        <UserRating userRating={vote_average} />
+        <UserRating userRating={vote_average} className="user_rating"/>
         <h4>{name}</h4>
         <p>{release_date}</p>
       </div>

@@ -1,4 +1,23 @@
-.serchresult_container{
-    width:85%;
-margin:auto;
+.search_container {
+    .search_banner {
+        height: 400px;
+        width: 100%;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .serchresult_container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+        margin: auto;
+        justify-content: space-around;
+       position: relative;
+       top: -5rem;
+        background-color: rgb(244, 245, 245);
+        z-index: 99;
+    }
 }

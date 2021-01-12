@@ -1,10 +1,9 @@
-import { getMovie } from "../actions";
 import { GET_MENU_ITEM, GET_BANNER_BACK } from "../actions/types";
 
 const defaultState = {
   movies:[],
   loading: false,
-  backdrop:[] 
+  backdrop:{}
 };
 
 const getmenuMovie = (state = defaultState, action) => {

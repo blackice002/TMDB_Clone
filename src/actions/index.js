@@ -5,7 +5,7 @@ import {
   GET_MOVIE_BY_SEARCH,
   GET_MOVIE_BY_ID,
   GET_MOVIE_CAST,
-  GET_BANNER_BACK
+  GET_BANNER_BACK,
 } from "./types";
 
 export const getpopularmovies = (menuItem) => {
@@ -26,7 +26,7 @@ export const getMovie = (movieId) => {
     const movie_by_id = await axios.get(
       `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`
     );
-// console.log("movie data by id ", movie_by_id)
+    // console.log("movie data by id ", movie_by_id)
     dispatch({
       type: GET_MOVIE_BY_ID,
       payload: movie_by_id.data,
@@ -46,8 +46,8 @@ export const getMovieCast = (movieId) => {
   };
 };
 
-
 export const searchMovies = (searchTerm) => {
+  console.log("action search term: ", searchTerm )
   return async (dispatch) => {
     let endPoint;
     if (!searchTerm) {
@@ -67,20 +67,16 @@ export const searchMovies = (searchTerm) => {
   };
 };
 
+export const bannerBack = () => {
+  return async (dispatch) => {
 
-export const bannerBack = ()=>{
-
-  return async dispatch => {
+    const randomImage = Math.floor(Math.random() * 10) + 1;
     const result = await axios.get(
       `${API_URL}trending/tv/day?api_key=${API_KEY}`
     );
     dispatch({
-type:GET_BANNER_BACK,
-payload:result.data
-
-    })
-  }
-
-
-
-}
+      type: GET_BANNER_BACK,
+      payload: result.data.results[randomImage],
+    });
+  };
+};

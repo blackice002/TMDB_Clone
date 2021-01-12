@@ -1,3 +1,6 @@
+@import '../../index.scss';
+
+
 .detils_container {
     .detail_header {
         height: 570px;
@@ -9,6 +12,7 @@
             justify-content: flex-start;
             align-items: center;
             margin: auto;
+
             img {
                 width: 300px;
                 border: .8rem solid rgba(146, 205, 223, 0.5);
@@ -42,38 +46,59 @@
     }
 
     .actor_container {
-        display: flex;
+        // display: flex;
 
         width: 80%;
         margin: auto;
-        justify-content: space-evenly;
-        .actor_wrapper{
+        // justify-content: ;
+
+        .actor_wrapper {
             display: flex;
             flex-wrap: wrap;
-            flex:auto;
+            flex: auto;
+
             .actor_div {
                 display: flex;
                 flex: auto;
                 flex-direction: column;
-                // background-color: rgb(141, 140, 140);
                 height: auto;
-                align-items: center;
-                justify-content: center;
-
-                border: 1px solid rgb(202, 202, 202);
+                justify-content: flex-end;
                 border-radius: 1rem;
-                margin-right:.5rem ;
+                margin-right: .5rem;
                 overflow: hidden;
                 height: 300px;
-                width:200px;
-                margin-top:1rem;
-                img {
-                    border-radius: 1.5rem; 
+                width: 150px;
+                margin-top: 1rem;
+
+                h4 {
+                    width: 100%;
+                    text-align: center;
+                    background-color: $primary;
+                    padding: .5rem;
+                    box-shadow: 0 -5px 8px rgb(60, 161, 153);
+                    color: white;
+                    font-size: 14px;
+                    font-style: normal;
                     
+                }
+
+                .image_div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    .no_image {
+                        width: 200px;
+                    }
+                }
+
+                img {
+                    // border-radius: 1.5rem;
+
                 }
             }
         }
-      
     }
 
 }
