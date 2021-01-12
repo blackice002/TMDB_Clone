@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import MovieCard from "../elements/movieCard/MovieCard";
-import { searchMovies } from "../../actions";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import "./searchresult.scss";

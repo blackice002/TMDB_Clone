@@ -26,7 +26,6 @@ export const getMovie = (movieId) => {
     const movie_by_id = await axios.get(
       `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`
     );
-    // console.log("movie data by id ", movie_by_id)
     dispatch({
       type: GET_MOVIE_BY_ID,
       payload: movie_by_id.data,
@@ -47,7 +46,6 @@ export const getMovieCast = (movieId) => {
 };
 
 export const searchMovies = (searchTerm) => {
-  console.log("action search term: ", searchTerm )
   return async (dispatch) => {
     let endPoint;
     if (!searchTerm) {

@@ -12,7 +12,7 @@ const Banner = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(bannerBack());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(searchMovies(searchInput));

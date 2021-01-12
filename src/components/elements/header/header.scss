@@ -15,8 +15,8 @@
         justify-content: flex-start;
         align-items: center;
         background: -webkit-linear-gradient(90deg, #09B5E2, #87CCA6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
 
         h2 {
             font-size: 2rem;
