@@ -12,6 +12,7 @@ import UserRating from "../elements/userRating/UserRating";
 import VideoModal from "../elements/modal/VideoModal";
 import { getMovie, getMovieCast } from "../../actions";
 import { useSelector, useDispatch } from "react-redux";
+import movieImage from "../../images/movie.jpg"
 // import ReactPlayer from "react-player";
 
 const Details = (props) => {
@@ -20,6 +21,7 @@ const Details = (props) => {
   console.log("movie ID Cast: ", cast);
   const dispatch = useDispatch();
 
+  console.log("Movie details poster path",movieDetail.poster_path)
   const poster = `${IMAGE_BASE_URL}${DETAIL_SIZE}${movieDetail.poster_path}`;
   const posterback = `${IMAGE_BASE_URL}${BACKDROP_SIZE}${movieDetail.backdrop_path}`;
 
@@ -36,7 +38,7 @@ const Details = (props) => {
     <div className="detils_container">
       <div className="detail_header" style={bannerBack}>
         <div className="detail_contain">
-          <img src={poster} alt={movieDetail.title} />
+          <img src={movieDetail.poster_path ? poster : movieImage } alt={movieDetail.title} />
           <div className="movie_contain">
             <div>
               <h2>{movieDetail.title}</h2>

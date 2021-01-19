@@ -36,7 +36,7 @@ const SearchResults = (props) => {
               overview={movie.overview}
               title={movie.title}
               release_date={movie.release_date}
-              poster_path={movie.poster_path? movie.poster_path: movieImage }
+              poster_path={movie.poster_path !=="" ? movie.poster_path : movieImage }
             />
           </div>
         ))
